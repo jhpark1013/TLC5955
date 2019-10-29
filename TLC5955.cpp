@@ -51,7 +51,8 @@ void TLC5955::init(uint8_t gslat, uint8_t spi_mosi, uint8_t spi_clk, uint8_t gsc
 
   // Define baud rate
   SPISettings mSettings(spi_baud_rate, MSBFIRST, SPI_MODE0);
-
+  this->mSettings = mSettings;
+	
   // Set default color channel indicies
   setRgbPinOrder(rgb_order_default[0], rgb_order_default[1], rgb_order_default[2]);
 }
@@ -63,6 +64,7 @@ void TLC5955::setSpiBaudRate(uint32_t new_baud_rate)
 
   // Define baud rate
   SPISettings mSettings(spi_baud_rate, MSBFIRST, SPI_MODE0);
+  this->mSettings = mSettings;
 }
 
 uint32_t TLC5955::getSpiBaudRate()
